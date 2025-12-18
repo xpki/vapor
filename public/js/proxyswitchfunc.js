@@ -1,6 +1,9 @@
 const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
 const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
 const bareUrl = (location.protocol === "https:" ? "https" : "http") + "://" + location.host + "/bare/"
+const iframe = document.getElementById('iframeWindow');
+const toggleButton = document.getElementById('toggleButton');
+
 document
     .getElementById("urlInput")
     .addEventListener("keydown", function (event) {
@@ -39,3 +42,13 @@ document.getElementById("switcher").onselect = async function (event) {
             break;
     }
 }
+
+toggleButton.addEventListener('click', () => {
+    iframe.classList.toggle('expanded');
+
+    if (iframe.classList.contains('expanded')) {
+        toggleButton.src = 'imgs/minimize.png';
+    } else {
+        toggleButton.src = 'imgs/expand.png';
+    }
+});
