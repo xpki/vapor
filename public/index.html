@@ -14,6 +14,8 @@
                 await navigator.serviceWorker.register("/uv/sw.js");
             });
         }
+
+        
         </script>
 
         <link rel="stylesheet" href="style.css">
@@ -31,6 +33,27 @@
 
 
         <iframe id="iframeWindow" class="iframeWindow"></iframe>
+        <div id="bottomControl">
+            <img id="toggleButton" src="imgs/expand.png" alt="Expand/Minimize">
+        </div>
+
+
     </body>
     <script src="js/proxyswitchfunc.js"></script>
+    <script>
+    const iframe = document.getElementById('iframeWindow');
+    const toggleButton = document.getElementById('toggleButton');
+
+    toggleButton.addEventListener('click', () => {
+        iframe.classList.toggle('expanded');
+
+        if (iframe.classList.contains('expanded')) {
+            toggleButton.src = 'imgs/minimize.png';
+        } else {
+            toggleButton.src = 'imgs/expand.png';
+        }
+    });
+    </script>
+
+
 </html>
