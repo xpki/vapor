@@ -96,7 +96,7 @@ io.on("connection", (socket) => {
         onlineUsers--;
         io.emit("online users", onlineUsers);
         delete nicknames[socket.id];
-    });
+    });    
 })
 
 // proxy things
