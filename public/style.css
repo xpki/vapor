@@ -5,33 +5,50 @@
 }
 
 body {
-  background: #000000;
+  background: #000;
   color: #cfcfcf;
   font-family: "DejaVu Sans Mono", "Liberation Mono", Consolas, monospace;
   font-size: 13px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 16px;
+  overflow: hidden; 
 }
 
-.row {
-    display: flex;
-    flex-direction: row;
+#row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 16px;
+  gap: 8px;
+  position: sticky; 
+  top: 0;
+  z-index: 100;
+}
+
+#urlControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#pageButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 #urlInput {
-  width: 75%;
-  max-width: 600px;
+  width: 400px;
+  max-width: 50vw;
   padding: 8px 12px;
-  background: #111;
+  background: #000;
   color: #e0e0e0;
   border: 1px solid #222;
   font-family: inherit;
   font-size: 13px;
-  border-radius: 4px;
-  margin-bottom: 8px;
 }
 
 #urlInput::placeholder {
@@ -42,28 +59,27 @@ body {
   outline: 2px solid #555;
 }
 
-#searchButton {
-  padding: 8px 16px;
+#searchButton,
+#pageButtons button {
+  padding: 6px 12px;
   background: #111;
   color: #cfcfcf;
   border: 1px solid #222;
-  border-radius: 4px;
   cursor: pointer;
   font-family: inherit;
   font-size: 13px;
 }
 
-#searchButton:hover {
+#searchButton:hover,
+#pageButtons button:hover {
   background: #222;
 }
 
 #switcher {
-  margin-top: 12px;
   padding: 6px 10px;
   background: #111;
   color: #cfcfcf;
   border: 1px solid #222;
-  border-radius: 4px;
   font-family: inherit;
   font-size: 13px;
 }
@@ -71,76 +87,50 @@ body {
 #iframeWindow {
   flex: 1;
   width: 100%;
-  margin-top: 16px;
+  margin-top: 0;
   background: #000;
   border: 1px solid #222;
-  border-radius: 4px;
-}
-
-@media (max-width: 700px) {
-  #urlInput {
-    width: 90%;
-  }
-}
-
-
-#expandButton {
-    position: fixed;
-    bottom: 12px; 
-    right: 12px;  
-    width: 32px;  
-    height: 32px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-#expandButton img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
 
 #iframeWindow.expanded {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    border-radius: 0;
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border-radius: 0;
+  z-index: 999;
 }
 
-
 #bottomControl {
-    position: fixed;
-    bottom: -50px;
-    right: 12px;
-    width: 25px;
-    height: 25px;
-    z-index: 1000;
-    transition: bottom 0.3s;
-    cursor: pointer;
+  position: fixed;
+  bottom: -50px;
+  right: 12px;
+  width: 25px;
+  height: 25px;
+  z-index: 1000;
+  transition: bottom 0.3s;
+  cursor: pointer;
 }
 
 body:hover #bottomControl,
 #bottomControl:hover {
-    bottom: 12px; 
+  bottom: 12px;
 }
 
 #bottomControl img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-#iframeWindow.expanded {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    border-radius: 0;
-    z-index: 999;
+@media (max-width: 700px) {
+  #urlInput {
+    width: 60%;
+  }
+  #pageButtons {
+    gap: 4px;
+  }
 }
+

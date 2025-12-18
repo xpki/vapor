@@ -4,40 +4,39 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+        <title>vapor</title>
         <script src="/uv/uv.bundle.js"></script>
         <script src="/uv/uv.config.js"></script>
         <script src="/baremux/index.js"></script>
-
         <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", async () => {
                 await navigator.serviceWorker.register("/uv/sw.js");
             });
         }
-
-        
         </script>
-
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div id="row">
-            <input type="text" id="urlInput" placeholder="Enter URL here">
-            <button id="searchButton">Search Text</button>
-            <select id="switcher">
-                <option value="">--Please Choose an Option--</option>
-                <option value="epoxy">Epoxy</option>
-                <option value="bare">Bare</option>
-            </select>
+            <div id="urlControls">
+                <input type="text" id="urlInput" placeholder="Enter URL here">
+                <button id="searchButton">Search Text</button>
+                <select id="switcher">
+                    <option value="">--Please Choose an Option--</option>
+                    <option value="epoxy">Epoxy</option>
+                    <option value="bare">Bare</option>
+                </select>
+            </div>
+            <div id="pageButtons">
+                <button onclick="window.location.href='/chat'">Chat</button>
+                <button onclick="window.location.href='/other'">Other Page</button>
+            </div>
         </div>
-
-
         <iframe id="iframeWindow" class="iframeWindow"></iframe>
         <div id="bottomControl">
             <img id="toggleButton" src="imgs/expand.png" alt="Expand/Minimize">
         </div>
-
-
     </body>
     <script src="js/proxyswitchfunc.js"></script>
 </html>
