@@ -1,8 +1,8 @@
 [
   {
-    "name": "Tetris",
-    "icon": "games/icons/tetris.png",
-    "link": "games/tetris.html"
+    "name": "The binding of Isaac, Wrath of the Lamb",
+    "icon": "https://milkwrap-maker.github.io/TboiLamb/icon.png",
+    "link": "https://milkwrap-maker.github.io/TboiLamb/"
   },
   {
     "name": "Snake",

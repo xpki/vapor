@@ -49,12 +49,43 @@
         card.classList.add("game-card");
         card.dataset.name = game.name;
         card.innerHTML = `
-          <a href="${game.link}">
+          <a href="#" class="game-link">
             <img src="${game.icon}" alt="${game.name} Icon">
             <span>${game.name}</span>
           </a>
         `;
         gamesContainer.appendChild(card);
+
+        // Add click event to open the game in a fullscreen iframe
+        const link = card.querySelector(".game-link");
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const gameTab = window.open("about:blank", "_blank");
+          gameTab.document.write(`
+            <html>
+              <head>
+                <title>${game.name}</title>
+                <style>
+                  html, body {
+                    margin: 0;
+                    height: 100%;
+                    overflow: hidden;
+                    background: #000;
+                  }
+                  iframe {
+                    border: none;
+                    width: 100vw;
+                    height: 100vh;
+                  }
+                </style>
+              </head>
+              <body>
+                <iframe src="${game.link}" allowfullscreen></iframe>
+              </body>
+            </html>
+          `);
+          gameTab.document.close();
+        });
       });
     }
 
