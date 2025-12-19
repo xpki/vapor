@@ -134,3 +134,57 @@ body:hover #bottomControl,
   }
 }
 
+<<<<<<< Updated upstream
+=======
+select {
+  width: 100%;
+  padding: 8px 12px;
+  background: #111;         
+  color: #cfcfcf;            
+  border: 1px solid #222;     
+  border-radius: 4px;        
+  font-family: "DejaVu Sans Mono", "Liberation Mono", Consolas, monospace;
+  font-size: 13px;
+  cursor: pointer;
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+  margin-bottom: 16px;
+}
+
+select::-ms-expand {
+  display: none; 
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23cfcfcf' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px 12px;
+}
+
+select:hover,
+select:focus {
+  background: #222;
+  border-color: #4da6ff;
+  outline: none;
+  color: #fff;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #cfcfcf;
+}
+
+.settings-box {
+  max-width: 500px;         
+  width: 100%;
+  background: #111;           
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 24px;              
+  margin-top: 20px;          
+}
+>>>>>>> Stashed changes

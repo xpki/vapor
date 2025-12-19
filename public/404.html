@@ -1,1 +1,102 @@
-<h1>Yo, there aint nothin here (404 btw)</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 – Page Not Found</title>
+
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">Vapor</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <div class="error-box">
+    <h1>404</h1>
+    <p>The page you’re looking for doesn’t exist.</p>
+
+    <div class="actions">
+      <a href="index.html" class="btn">Go Home</a>
+      <a href="javascript:history.back()" class="btn">Go Back</a>
+    </div>
+  </div>
+
+<script>
+const savedTheme = localStorage.getItem("vapor-theme") || "dark";
+
+function applyChatTheme(mode) {
+  if (mode === "light") {
+    document.body.style.background = "#f0f0f0";
+    document.body.style.color = "#111";
+
+    document.querySelectorAll(".navbar, .settings-box, #urlInput, #searchButton, #switcher, #iframeWindow").forEach(el => {
+      el.style.background = "#fff";
+      el.style.color = "#111";
+      el.style.border = "1px solid #ccc";
+    });
+
+    document.getElementById("onlineCount").style.background = "#fff";
+    document.getElementById("onlineCount").style.color = "#111";
+    document.getElementById("onlineCount").style.borderBottom = "1px solid #ccc";
+
+    document.getElementById("inputBar").style.background = "#fff";
+    document.getElementById("inputBar").style.borderTop = "1px solid #ccc";
+
+    const msgInput = document.getElementById("msg");
+    msgInput.style.background = "#fff";
+    msgInput.style.color = "#111";
+    msgInput.style.border = "1px solid #ccc";
+    msgInput.style.outline = "none";
+
+    document.querySelectorAll("select").forEach(sel => {
+      sel.style.background = "#fff";
+      sel.style.color = "#111";
+      sel.style.border = "1px solid #ccc";
+    });
+
+  } else {
+    document.body.style.background = "#000";
+    document.body.style.color = "#cfcfcf";
+
+    document.querySelectorAll(".navbar, .settings-box, #urlInput, #searchButton, #switcher, #iframeWindow").forEach(el => {
+      el.style.background = "#111";
+      el.style.color = "#cfcfcf";
+      el.style.border = "1px solid #222";
+    });
+
+    document.getElementById("onlineCount").style.background = "#111";
+    document.getElementById("onlineCount").style.color = "#cfcfcf";
+    document.getElementById("onlineCount").style.borderBottom = "1px solid #222";
+
+    document.getElementById("inputBar").style.background = "#000";
+    document.getElementById("inputBar").style.borderTop = "1px solid #222";
+
+    const msgInput = document.getElementById("msg");
+    msgInput.style.background = "#000";
+    msgInput.style.color = "#e0e0e0";
+    msgInput.style.border = "none";
+
+    document.querySelectorAll("select").forEach(sel => {
+      sel.style.background = "#111";
+      sel.style.color = "#cfcfcf";
+      sel.style.border = "1px solid #222";
+    });
+  }
+}
+
+applyChatTheme(savedTheme);
+</script>
+
+
+
+</body>
+</html>

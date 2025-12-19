@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
-<<<<<<< Updated upstream
-        <title>vapor</title>
-=======
-        <title>Vapor</title>
->>>>>>> Stashed changes
-        <script src="/uv/uv.bundle.js"></script>
-        <script src="/uv/uv.config.js"></script>
-        <script src="/baremux/index.js"></script>
-        <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", async () => {
-                await navigator.serviceWorker.register("/uv/sw.js");
-            });
-        }
-        </script>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="nav.css">
-    </head>
-    <body>
-    <nav class="navbar">
-        <div class="nav-brand">Vapor</div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vapor Applications</title>
+  <link rel="stylesheet" href="games.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="nav-brand">Astatine</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html" class="active">Games</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
 
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="chat.html">Chat</a></li>
-            <li><a href="settings.html">Settings</a></li>
-          </ul>
-    </nav>
+  <div id="gameSearchBar">
+    <input type="text" id="gameSearch" placeholder="Search games..." autocomplete="off">
+  </div>
 
-        <div id="row">
-            <div id="urlControls">
-                <input type="text" id="urlInput" placeholder="Enter URL here">
-                <button id="searchButton">Search Text</button>
-                <select id="switcher">
-                    <option value="">--Please Choose an Option--</option>
-                    <option value="epoxy">Epoxy</option>
-                    <option value="bare">Bare</option>
-                </select>
-            </div>
-            <div id="pageButtons">
-                <button onclick="window.location.href='/chat'">Chat</button>
-                <button onclick="window.location.href='/other'">Other Page</button>
-            </div>
-        </div>
-        <iframe id="iframeWindow" class="iframeWindow"></iframe>
-        <div id="bottomControl">
-            <img id="toggleButton" src="imgs/expand.png" alt="Expand/Minimize">
-        </div>
-<<<<<<< Updated upstream
-=======
+  <div id="gamesContainer" class="games-container">
+  </div>
+
+  <script>
+    const gamesContainer = document.getElementById("gamesContainer");
+    const searchInput = document.getElementById("gameSearch");
+    let gamesData = [];
+
+    fetch("games.json")
+      .then(response => response.json())
+      .then(data => {
+        gamesData = data;
+        renderGames(gamesData);
+      })
+      .catch(err => {
+        gamesContainer.innerHTML = "<p>Error loading games.</p>";
+        console.error(err);
+      });
+
+    function renderGames(games) {
+      gamesContainer.innerHTML = "";
+      games.forEach(game => {
+        const card = document.createElement("div");
+        card.classList.add("game-card");
+        card.dataset.name = game.name;
+        card.innerHTML = `
+          <a href="${game.link}">
+            <img src="${game.icon}" alt="${game.name} Icon">
+            <span>${game.name}</span>
+          </a>
+        `;
+        gamesContainer.appendChild(card);
+      });
+    }
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      const filtered = gamesData.filter(game => game.name.toLowerCase().includes(query));
+      renderGames(filtered);
+    });
+  </script>
+
+
 <script>
 const savedTheme = localStorage.getItem("vapor-theme") || "dark";
 
@@ -121,8 +132,5 @@ function applyChatTheme(mode) {
 applyChatTheme(savedTheme);
 </script>
 
-
->>>>>>> Stashed changes
-    </body>
-    <script src="js/proxyswitchfunc.js"></script>
+</body>
 </html>

@@ -1,0 +1,41 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background-color: #121212;
+  border-bottom: 1px solid #222;
+  border-radius: 4px;
+}
+
+.nav-brand {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #4da6ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #4da6ff;
+}
+
+.nav-brand {
+  margin-right: 15px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}

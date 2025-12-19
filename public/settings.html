@@ -1,60 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
-<<<<<<< Updated upstream
-        <title>vapor</title>
-=======
-        <title>Vapor</title>
->>>>>>> Stashed changes
-        <script src="/uv/uv.bundle.js"></script>
-        <script src="/uv/uv.config.js"></script>
-        <script src="/baremux/index.js"></script>
-        <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", async () => {
-                await navigator.serviceWorker.register("/uv/sw.js");
-            });
-        }
-        </script>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="nav.css">
-    </head>
-    <body>
-    <nav class="navbar">
-        <div class="nav-brand">Vapor</div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vapor Settings</title>
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="chat.html">Chat</a></li>
-            <li><a href="settings.html">Settings</a></li>
-          </ul>
-    </nav>
+  <nav class="navbar">
+    <div class="nav-brand">Vapor</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="settings.html" class="active">Settings</a></li>
+    </ul>
+  </nav>
 
-        <div id="row">
-            <div id="urlControls">
-                <input type="text" id="urlInput" placeholder="Enter URL here">
-                <button id="searchButton">Search Text</button>
-                <select id="switcher">
-                    <option value="">--Please Choose an Option--</option>
-                    <option value="epoxy">Epoxy</option>
-                    <option value="bare">Bare</option>
-                </select>
-            </div>
-            <div id="pageButtons">
-                <button onclick="window.location.href='/chat'">Chat</button>
-                <button onclick="window.location.href='/other'">Other Page</button>
-            </div>
-        </div>
-        <iframe id="iframeWindow" class="iframeWindow"></iframe>
-        <div id="bottomControl">
-            <img id="toggleButton" src="imgs/expand.png" alt="Expand/Minimize">
-        </div>
-<<<<<<< Updated upstream
-=======
+  <div class="settings-box">
+    <h2>Display Settings</h2>
+
+    <label for="themeSelect">Theme:</label>
+    <select id="themeSelect">
+      <option value="dark">Dark Mode</option>
+      <option value="light">Light Mode</option>
+    </select>
+
+    <div class="dropdown">
+      <label for="exampleSelect">Example Dropdown:</label>
+      <select id="exampleSelect">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+    </div>
+  </div>
+
+  <script src="js/settings.js"></script>
 <script>
 const savedTheme = localStorage.getItem("vapor-theme") || "dark";
 
@@ -122,7 +106,5 @@ applyChatTheme(savedTheme);
 </script>
 
 
->>>>>>> Stashed changes
-    </body>
-    <script src="js/proxyswitchfunc.js"></script>
+</body>
 </html>

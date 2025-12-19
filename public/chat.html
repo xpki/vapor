@@ -4,7 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+<<<<<<< Updated upstream
   <title>vapor</title>
+=======
+  <title>Vapor Communications</title>
+>>>>>>> Stashed changes
   <link rel="stylesheet" href="chat.css">
 </head>
 <body>
@@ -16,11 +20,92 @@
         </div>
     </div>
     <div id="chat"></div>
+<<<<<<< Updated upstream
+=======
+    <nav class="chat-left-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="chat.html" class="active">Chat</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+    
+
+>>>>>>> Stashed changes
     <div id="inputBar">
         <input type="text" id="msg" placeholder="Type your message..." autocomplete="off">
         <button id="sendBtn">Send</button>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/chatfunc.js"></script>
+
+<script>
+const savedTheme = localStorage.getItem("vapor-theme") || "dark";
+
+function applyChatTheme(mode) {
+  if (mode === "light") {
+    document.body.style.background = "#f0f0f0";
+    document.body.style.color = "#111";
+
+    document.querySelectorAll(".navbar, .settings-box, #urlInput, #searchButton, #switcher, #iframeWindow").forEach(el => {
+      el.style.background = "#fff";
+      el.style.color = "#111";
+      el.style.border = "1px solid #ccc";
+    });
+
+    document.getElementById("onlineCount").style.background = "#fff";
+    document.getElementById("onlineCount").style.color = "#111";
+    document.getElementById("onlineCount").style.borderBottom = "1px solid #ccc";
+
+    document.getElementById("inputBar").style.background = "#fff";
+    document.getElementById("inputBar").style.borderTop = "1px solid #ccc";
+
+    const msgInput = document.getElementById("msg");
+    msgInput.style.background = "#fff";
+    msgInput.style.color = "#111";
+    msgInput.style.border = "1px solid #ccc";
+    msgInput.style.outline = "none";
+
+    document.querySelectorAll("select").forEach(sel => {
+      sel.style.background = "#fff";
+      sel.style.color = "#111";
+      sel.style.border = "1px solid #ccc";
+    });
+
+  } else {
+    document.body.style.background = "#000";
+    document.body.style.color = "#cfcfcf";
+
+    document.querySelectorAll(".navbar, .settings-box, #urlInput, #searchButton, #switcher, #iframeWindow").forEach(el => {
+      el.style.background = "#111";
+      el.style.color = "#cfcfcf";
+      el.style.border = "1px solid #222";
+    });
+
+    document.getElementById("onlineCount").style.background = "#111";
+    document.getElementById("onlineCount").style.color = "#cfcfcf";
+    document.getElementById("onlineCount").style.borderBottom = "1px solid #222";
+
+    document.getElementById("inputBar").style.background = "#000";
+    document.getElementById("inputBar").style.borderTop = "1px solid #222";
+
+    const msgInput = document.getElementById("msg");
+    msgInput.style.background = "#000";
+    msgInput.style.color = "#e0e0e0";
+    msgInput.style.border = "none";
+
+    document.querySelectorAll("select").forEach(sel => {
+      sel.style.background = "#111";
+      sel.style.color = "#cfcfcf";
+      sel.style.border = "1px solid #222";
+    });
+  }
+}
+
+applyChatTheme(savedTheme);
+</script>
+
+
 </body>
 </html>

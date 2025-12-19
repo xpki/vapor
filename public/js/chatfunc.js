@@ -25,14 +25,43 @@ function escapeHtml(str) {
 
 function addLine({ sender, message, ts }) {
   const p = document.createElement("p");
+<<<<<<< Updated upstream
   const time = ts ? new Date(ts).toLocaleTimeString() : new Date().toLocaleTimeString();
   p.innerHTML = `<span class="muted">${time}</span> <strong>${escapeHtml(sender)}</strong> ${escapeHtml(message)}`;
+=======
+  p.className = "message";
+
+  const time = ts
+    ? new Date(ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+    : new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+  p.innerHTML = `
+    <span class="time">[${time}]</span>
+    <span class="user">${escapeHtml(sender)}:</span>
+    <span class="text">${escapeHtml(message)}</span>
+  `;
+
+>>>>>>> Stashed changes
   chat.appendChild(p);
   chat.scrollTop = chat.scrollHeight;
 }
 
+<<<<<<< Updated upstream
 socket.on("chatHistory", msgs => { msgs.forEach(m => addLine({ ...m })); });
 socket.on("newMessage", (payload) => { addLine(payload); });
+=======
+
+socket.on("chatHistory", msgs => {
+  msgs.forEach(m => addLine({
+    ...m
+  }));
+});
+
+
+socket.on("newMessage", (payload) => {
+  addLine(payload);
+});
+>>>>>>> Stashed changes
 
 document.getElementById("sendBtn").onclick = () => {
   const msgInput = document.getElementById("msg");
