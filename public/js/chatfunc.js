@@ -25,13 +25,6 @@ function escapeHtml(str) {
 
 function addLine({ sender, message, ts }) {
   const p = document.createElement("p");
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  const time = ts ? new Date(ts).toLocaleTimeString() : new Date().toLocaleTimeString();
-  p.innerHTML = `<span class="muted">${time}</span> <strong>${escapeHtml(sender)}</strong> ${escapeHtml(message)}`;
-=======
-=======
->>>>>>> Stashed changes
   p.className = "message";
 
   const time = ts
@@ -44,18 +37,9 @@ function addLine({ sender, message, ts }) {
     <span class="text">${escapeHtml(message)}</span>
   `;
 
->>>>>>> Stashed changes
   chat.appendChild(p);
   chat.scrollTop = chat.scrollHeight;
 }
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-socket.on("chatHistory", msgs => { msgs.forEach(m => addLine({ ...m })); });
-socket.on("newMessage", (payload) => { addLine(payload); });
-=======
-=======
->>>>>>> Stashed changes
 
 socket.on("chatHistory", msgs => {
   msgs.forEach(m => addLine({
@@ -63,11 +47,9 @@ socket.on("chatHistory", msgs => {
   }));
 });
 
-
 socket.on("newMessage", (payload) => {
   addLine(payload);
 });
->>>>>>> Stashed changes
 
 document.getElementById("sendBtn").onclick = () => {
   const msgInput = document.getElementById("msg");
@@ -92,4 +74,3 @@ socket.on("nicknameUpdated", data => {
     nickInput.value = data.nickname;
   }
 });
-
